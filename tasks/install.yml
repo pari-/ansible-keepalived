@@ -1,11 +1,11 @@
 ---
 
 - name: install packages
-  apt: >
-    name="{{ item }}"
-    update_cache="{{ keepalived_update_cache|default(omit) }}"
-    cache_valid_time="{{ keepalived_cache_valid_time|default(omit) }}"
-    state="{{ keepalived_packages_state }}"
-    default_release="{{ keepalived_default_release }}"
+  apt:
+    name: "{{ item }}"
+    update_cache: "{{ keepalived_update_cache|default(omit) }}"
+    cache_valid_time: "{{ keepalived_cache_valid_time|default(omit) }}"
+    state: "{{ keepalived_packages_state }}"
+    default_release: "{{ keepalived_default_release }}"
   with_items:
     - "{{ keepalived_package_list }}"
