@@ -1,0 +1,9 @@
+---
+
+- hosts: "{{ hosts_group | default('all') }}"
+
+  vars_files:
+    - 'example-vars.yml'
+
+  roles:
+    - { role: "{{ role_name | default('ansible-keepalived') }}", tags: ['ansible-keepalived'] }

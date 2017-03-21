@@ -1,0 +1,8 @@
+---
+
+- name: generate configuration file
+  template: >
+    src="etc/keepalived/keepalived.conf.j2"
+    dest="{{ keepalived_config_file }}"
+  notify:
+    - "restart keepalived"

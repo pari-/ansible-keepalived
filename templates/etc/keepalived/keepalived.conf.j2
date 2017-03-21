@@ -1,0 +1,18 @@
+{% for vrrp_instance in keepalived_vrrp_instances %}
+vrrp_instance {{ vrrp_instance['name'] }} {
+    state {{ vrrp_instance['state'] }}
+    interface {{ vrrp_instance['interface'] }}
+    virtual_router_id {{ vrrp_instance['virtual_router_id'] }}
+    priority {{ vrrp_instance['priority'] }}
+    advert_int {{ vrrp_instance['advert_int'] }}
+    authentication {
+        auth_type PASS
+        auth_pass {{ vrrp_instance['auth_pass'] }}
+    }
+    virtual_ipaddress {
+{% for vip in vrrp_instance['vip_list'] %}
+        {{ vip }}
+{% endfor %}
+    }
+}
+{% endfor %}

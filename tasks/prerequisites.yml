@@ -1,0 +1,13 @@
+---
+
+- name: fail unless we run on a supported distribution
+  fail: >
+    msg="Unfortunately, the 'keepalived'-role is not supported on {{ ansible_distribution_release }}! :-("
+  when: ansible_distribution_release|lower not in keepalived_supported_distro_list
+
+- name: add additional repositories
+  apt_repository: >
+    repo="{{ item }}"
+    state="{{ keepalived_repo_state }}"
+  with_items:
+    - "{{ keepalived_repo_list }}"
