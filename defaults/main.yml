@@ -24,3 +24,4 @@ keepalived_default_release: "jessie-backports"
 #
 keepalived_config_file: "/etc/keepalived/keepalived.conf"
 keepalived_service_name: "keepalived"
+keepalived_ip_nonlocal_bind: True

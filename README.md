@@ -78,6 +78,7 @@ variable | default | notes
 `vrrp_instance['advert_int']` | `` | `The advertisement interval in seconds of the VRRP instance`
 `vrrp_instance['auth_pass']` | `` | `The authentication password of the VRRP instance`
 `vrrp_instance['vip_list']` | `` | `A list of virtual IPs of the VRRP instance`
+`ip_nonlocal_bind` | `True` | `Allows processes to bind() to non-local IP addresses`
 
 ### Role Internals
 
