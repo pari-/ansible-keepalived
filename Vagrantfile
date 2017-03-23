@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       subconfig.vm.box = ENV['VAGRANT_CONFIG_VM_BOX'] || 'parallels/debian-8.7'
       subconfig.vm.hostname = HN + i.to_s
       subconfig.vm.provider "parallels" do |prl|
-        prl.memory = 2048
-        prl.cpus = 2
+        prl.memory = 1024
+        prl.cpus = 1
       end
 
       subconfig.vm.provision :ansible do |ansible|
