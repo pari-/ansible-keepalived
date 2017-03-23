@@ -1,16 +1,16 @@
-{% for vrrp_instance in keepalived_vrrp_instances %}
-vrrp_instance {{ vrrp_instance['name'] }} {
-    state {{ vrrp_instance['state'] }}
-    interface {{ vrrp_instance['interface'] }}
-    virtual_router_id {{ vrrp_instance['virtual_router_id'] }}
-    priority {{ vrrp_instance['priority'] }}
-    advert_int {{ vrrp_instance['advert_int'] }}
+{% for vrrp_instance in keepalived_vrrp_instances|sort %}
+vrrp_instance {{ vrrp_instance }} {
+    state {{ keepalived_vrrp_instances[vrrp_instance]['state'] }}
+    interface {{ keepalived_vrrp_instances[vrrp_instance]['interface'] }}
+    virtual_router_id {{ keepalived_vrrp_instances[vrrp_instance]['virtual_router_id'] }}
+    priority {{ keepalived_vrrp_instances[vrrp_instance]['priority'] }}
+    advert_int {{ keepalived_vrrp_instances[vrrp_instance]['advert_int'] }}
     authentication {
         auth_type PASS
-        auth_pass {{ vrrp_instance['auth_pass'] }}
+        auth_pass {{ keepalived_vrrp_instances[vrrp_instance]['auth_pass'] }}
     }
     virtual_ipaddress {
-{% for vip in vrrp_instance['vip_list'] %}
+{% for vip in keepalived_vrrp_instances[vrrp_instance]['vip_list'] %}
         {{ vip }}
 {% endfor %}
     }

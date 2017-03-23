@@ -28,15 +28,15 @@ Ansible version in use for development: 2.2.1
 
   vars:
     keepalived_vrrp_instances:
-    - name: "V_I"
-      state: "MASTER"
-      interface: "eth0"
-      virtual_router_id: 42
-      priority: 100
-      advert_int: 1
-      auth_pass: "verySafeAuthPass1"
-      vip_list:
-      - 192.168.0.100
+      "V_I":
+        state: "MASTER"
+        interface: "eth0"
+        virtual_router_id: 42
+        priority: 101
+        advert_int: 1
+        auth_pass: "verySafeAuthPass1"
+        vip_list:
+        - 192.168.0.100
 
   roles: 
     - "ansible-keepalived"
@@ -47,15 +47,15 @@ Ansible version in use for development: 2.2.1
 
   vars:
     keepalived_vrrp_instances:
-    - name: "V_I"
-      state: "BACKUP"
-      interface: "eth0"
-      virtual_router_id: 42
-      priority: 100
-      advert_int: 1
-      auth_pass: "verySafeAuthPass1"
-      vip_list:
-      - 192.168.0.100
+      "V_I":
+        state: "BACKUP"
+        interface: "eth0"
+        virtual_router_id: 42
+        priority: 100
+        advert_int: 1
+        auth_pass: "verySafeAuthPass1"
+        vip_list:
+          - 192.168.0.100
 
   roles: 
     - "ansible-keepalived"
@@ -69,15 +69,14 @@ Available variables are listed below, along with default values (see defaults/ma
 
 variable | default | notes
 -------- | ------- | -----
-`vrrp_instances` | `` | `A list of VRRP instances`
-`vrrp_instance['name']` | `` | `Name of the VRRP instance`
-`vrrp_instance['state']` | `` | `State of the VRRP instance`
-`vrrp_instance['interface']` | `` | `Network interface of the VRRP instance`
-`vrrp_instance['virtual_router_id']` | `` | `Specify which VRRP router id the instance belongs to`
-`vrrp_instance['priority']` | `` | `The priority of the VRRP instance`
-`vrrp_instance['advert_int']` | `` | `The advertisement interval in seconds of the VRRP instance`
-`vrrp_instance['auth_pass']` | `` | `The authentication password of the VRRP instance`
-`vrrp_instance['vip_list']` | `` | `A list of virtual IPs of the VRRP instance`
+`vrrp_instances` | `` | `A list of all VRRP instances (<keys>)`
+`vrrp_instances[<key>]['state']` | `` | `State of the VRRP instance`
+`vrrp_instances[<key>]['interface']` | `` | `Network interface of the VRRP instance`
+`vrrp_instances[<key>]['virtual_router_id']` | `` | `Specify which VRRP router id the instance belongs to`
+`vrrp_instances[<key>]['priority']` | `` | `The priority of the VRRP instance`
+`vrrp_instances[<key>]['advert_int']` | `` | `The advertisement interval in seconds of the VRRP instance`
+`vrrp_instances[<key>]['auth_pass']` | `` | `The authentication password of the VRRP instance`
+`vrrp_instances[<key>]['vip_list']` | `` | `A list of virtual IPs of the VRRP instance`
 `ip_nonlocal_bind` | `True` | `Allows processes to bind() to non-local IP addresses`
 
 ### Role Internals
@@ -94,7 +93,6 @@ variable | default | notes
 `service_name` | `keepalived` | `TBD`
 `supported_distro_list` | `['jessie']` | `A list of distribution releases this role supports`
 `update_cache` | `yes` | `Run the equivalent of apt-get update before the operation`
-
 
 ## Dependencies
 

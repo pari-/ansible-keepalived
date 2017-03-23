@@ -1,7 +1,7 @@
 ---
 
 keepalived_vrrp_instances:
-  - name: "V_I"
+  "V_I":
     state: "BACKUP"
     interface: "eth0"
     virtual_router_id: 42

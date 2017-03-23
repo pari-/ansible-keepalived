@@ -1,11 +1,11 @@
 ---
 
 keepalived_vrrp_instances:
-  - name: "V_I"
+  "V_I":
     state: "MASTER"
     interface: "eth0"
     virtual_router_id: 42
-    priority: 100
+    priority: 101
     advert_int: 1
     auth_pass: "verySafeAuthPass1"
     vip_list:
