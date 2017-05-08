@@ -4,6 +4,7 @@
 # prerequisites
 #
 keepalived_supported_distro_list:
+  - "precise"
   - "jessie"
 keepalived_repo_list:
   - "deb http://ftp.debian.org/debian jessie-backports main"

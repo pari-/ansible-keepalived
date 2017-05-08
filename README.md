@@ -1,5 +1,7 @@
 # keepalived
 
+[![Build Status](https://travis-ci.org/pari-/ansible-keepalived.svg?branch=master)](https://travis-ci.org/pari-/ansible-keepalived)
+
 An Ansible role which installs and configures keepalived
 
 <!-- toc -->
@@ -19,7 +21,12 @@ An Ansible role which installs and configures keepalived
 
 Currently this role is developed for and tested on Debian GNU/Linux (release: jessie). It is assumed to work on other Debian distributions as well.
 
-Ansible version in use for development: 2.2.1
+Ansible version compatibility:
+
+- __2.3.0__ (current version in use for development of this role)
+- 2.2.2
+- 2.1.5
+- 2.0.2
 
 ## Example
 
