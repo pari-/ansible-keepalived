@@ -1,9 +1,18 @@
 ---
 
-- hosts: "{{ hosts_group | default('all') }}"
-
-  vars_files:
-    - 'example-vars.yml'
-
+- hosts: "all"
+  vars:
+    keepalived_vrrp_instance_list:
+      - name: "V_I"
+        state: "MASTER"
+        interface: "{{ ansible_default_ipv4['interface'] }}"
+        virtual_router_id: 42
+        priority: 100
+        advert_int: 1
+        auth_pass: "Li+J9sae"
+        vip_list:
+          - "192.168.0.100"
   roles:
-    - { role: "{{ role_name | default('ansible-keepalived') }}", tags: ['ansible-keepalived'] }
+    - role: "ansible-keepalived"
+      tags:
+        - "keepalived"

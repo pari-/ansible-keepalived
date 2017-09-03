@@ -1,12 +1,18 @@
 ---
 
 galaxy_info:
-  author: Patrick Ringl
-  description: An Ansible role which installs and configures keepalived
-  license: MIT
-  min_ansible_version: 2.0
+  author: "Patrick Ringl"
+  dependencies: []
+  description: "An Ansible role which installs and configures keepalived"
   galaxy_tags:
     - "keepalived"
     - "ipvs"
     - "vip"
-  dependencies: []
+    - "vrrp"
+  license: "MIT"
+  min_ansible_version: "2.0.2.0"
+  platforms:
+    - name: "Debian"
+      versions:
+        - "jessie"
+        - "stretch"

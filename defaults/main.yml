@@ -1,28 +1,20 @@
 ---
 
-#
-# prerequisites
-#
-keepalived_supported_distro_list:
-  - "precise"
-  - "jessie"
-keepalived_repo_list:
-  - "deb http://ftp.debian.org/debian jessie-backports main"
-keepalived_repo_state: "present"
-
-#
-# install
-#
+keepalived_cache_valid_time: 3600
+keepalived_config_file: "/etc/keepalived/keepalived.conf"
+keepalived_default_release: "{{ ansible_distribution_release|lower }}"
+keepalived_ip_nonlocal_bind: True
 keepalived_package_list:
   - "keepalived"
-keepalived_packages_state: "present"
-keepalived_update_cache: "yes"
-keepalived_cache_valid_time: 3600
-keepalived_default_release: "jessie-backports"
-
-#
-# configure
-#
-keepalived_config_file: "/etc/keepalived/keepalived.conf"
+  - "libipset3"
+keepalived_pre_default_release: "{{ keepalived_default_release }}"
+keepalived_pre_package_list:
+  - "apt-transport-https"
+  - "ca-certificates"
+keepalived_repo_list: []
+keepalived_supported_distro_list:
+  - "jessie"
+  - "stretch"
 keepalived_service_name: "keepalived"
-keepalived_ip_nonlocal_bind: True
+keepalived_update_cache: "yes"
+keepalived_vrrp_instances: []
