@@ -1,22 +1,24 @@
 ---
 
-- name: generate configuration file
+- name: "generate configuration file"
   template:
     src: "etc/keepalived/keepalived.conf.j2"
     dest: "{{ keepalived_config_file }}"
   notify:
     - "restart keepalived"
 
-- name: enable nonlocal ip binding
+- name: "enable nonlocal ip binding"
   sysctl:
     name: "net.ipv4.ip_nonlocal_bind"
     value: 1
     sysctl_set: "yes"
     state: "present"
     reload: "yes"
-  when: keepalived_ip_nonlocal_bind is defined and keepalived_ip_nonlocal_bind|bool == True
+  when:
+    - "keepalived_ip_nonlocal_bind is defined"
+    - "keepalived_ip_nonlocal_bind|bool == True"
 
-- name: ensure the service is started and enabled at boot
+- name: "ensure the service is started and enabled at boot"
   service:
     name: "{{ keepalived_service_name }}"
     state: "started"

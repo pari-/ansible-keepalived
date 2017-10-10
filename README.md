@@ -6,16 +6,25 @@ An Ansible role which installs and configures keepalived
 
 <!-- toc -->
 
+- [Requirements](#requirements)
+- [Example](#example)
+- [Defaults](#defaults)
+- [Dependencies](#dependencies)
+- [License](#license)
+- [Author Information](#author-information)
+
+<!-- tocstop -->
+
 ## Requirements
 
 Currently this role is developed for and tested on Debian GNU/Linux (release: stretch). It is assumed to work on other Debian distributions as well.
 
 Ansible version compatibility:
 
-- __2.3.2.0__ (current version in use for development of this role) 
+- __2.4.0.0__ (current version in use for development of this role) 
+- 2.3.2.0
 - 2.2.3.0
 - 2.1.6.0
-- 2.0.2.0
 
 ## Example
 
@@ -41,7 +50,7 @@ Ansible version compatibility:
 
 ```
 
-## Role Variables
+## Defaults
 
 Available variables are listed below, along with default values (see defaults/main.yml). They're generally prefixed with `keepalived_` (which I deliberately leave out here for better formatting).
 
