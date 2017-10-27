@@ -23,3 +23,4 @@
     name: "{{ keepalived_service_name }}"
     state: "started"
     enabled: "yes"
+    use: "systemd"
