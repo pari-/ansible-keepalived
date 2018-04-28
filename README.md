@@ -19,11 +19,7 @@ An Ansible role which installs and configures keepalived
 
 Currently this role is developed for and tested on Debian GNU/Linux (release: stretch). It is assumed to work on other Debian distributions as well.
 
-Ansible version compatibility:
-
-- __2.4.3.0__ (current version in use for development of this role)
-- 2.3.3.0
-- 2.2.3.0
+Ansible version compatibility: [Dockerfile](https://github.com/pari-/docker-debian-ansible/blob/master/debian/stretch/Dockerfile)
 
 ## Example
 
@@ -63,7 +59,7 @@ variable | default | notes
 `pre_package_list` | `['apt-transport-https','ca-certificates']` | `The list of prerequisite packages to be installed`
 `repo_list` | `[]` | `(additional) repository list`
 `service_name` | `keepalived` | `Name of the (keepalived) service`
-`supported_distro_list` | `['jessie', 'stretch']` | `A list of distribution releases this role supports`
+`supported_distro_list` | `['stretch']` | `A list of distribution releases this role supports`
 `update_cache` | `yes` | `Run the equivalent of apt-get update before the operation`
 `vrrp_instance_list` | `[]` | `A list of keepalived VRRP instances`
 

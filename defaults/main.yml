@@ -13,7 +13,6 @@ keepalived_pre_package_list:
   - "ca-certificates"
 keepalived_repo_list: []
 keepalived_supported_distro_list:
-  - "jessie"
   - "stretch"
 keepalived_service_name: "keepalived"
 keepalived_update_cache: "yes"
